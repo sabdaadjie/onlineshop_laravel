@@ -16,11 +16,11 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Add Category</h1>
+                <h1>Advanced Forms</h1>
                 <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item active"><a href="#">Category</a></div>
+                    <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
                     <div class="breadcrumb-item"><a href="#">Forms</a></div>
-                    <div class="breadcrumb-item">Add Category</div>
+                    <div class="breadcrumb-item">Category</div>
                 </div>
             </div>
 
@@ -37,7 +37,7 @@
                         </div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Name Ctegory</label>
+                                <label>Name</label>
                                 <input type="text"
                                     class="form-control @error('name')
                                 is-invalid
@@ -49,42 +49,16 @@
                                     </div>
                                 @enderror
                             </div>
-                            <div class="form-group">
-                                <label>Decription</label>
-                                <input type="text"
-                                    class="form-control @error('name')
-                                is-invalid
-                                @enderror"
-                                        name="description">
-                                    @error('description')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                {{-- </div>
-                                <div class="form-group">
-                                    <label>Photo Category</label>
-                                    <div class="col-sm-9">
-                                        <input type="file" class="form-control" name="image"
-                                            @error('image') is-invalid @enderror>
-                                    </div>
-                                    @error('image')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div> --}}
-                        </div>
-                </div>
-            </div>
-            <div class="card-footer text-right">
-                <button class="btn btn-primary">Submit</button>
-            </div>
-            </form>
-    </div>
 
-    </div>
-    </section>
+                        </div>
+                        <div class="card-footer text-right">
+                            <button class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </section>
     </div>
 @endsection
 

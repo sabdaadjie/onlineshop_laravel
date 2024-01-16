@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Edit category')
+@section('title', 'Edit Category')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -20,12 +20,15 @@
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
                     <div class="breadcrumb-item"><a href="#">Forms</a></div>
-                    <div class="breadcrumb-item">categorys</div>
+                    <div class="breadcrumb-item">Category</div>
                 </div>
             </div>
 
             <div class="section-body">
-                <h2 class="section-title">categorys</h2>
+                <h2 class="section-title">Category</h2>
+
+
+
                 <div class="card">
                     <form action="{{ route('category.update', $category) }}" method="POST">
                         @csrf
@@ -35,26 +38,13 @@
                         </div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Name Category</label>
+                                <label>Name</label>
                                 <input type="text"
                                     class="form-control @error('name')
                                 is-invalid
                             @enderror"
                                     name="name" value="{{ $category->name }}">
                                 @error('name')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label>Description</label>
-                                <input type="text"
-                                    class="form-control @error('description')
-                                is-invalid
-                            @enderror"
-                                    description="description" value="{{ $category->description }}">
-                                @error('description')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>

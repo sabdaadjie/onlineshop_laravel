@@ -39,23 +39,27 @@ class ProductController extends Controller
         return redirect()->route('product.index');
     }
 
-
-    // edit
+    //edit
     public function edit($id)
     {
-        // $categories = \App\Models\Category::all();
-        $product = Product::findOrFail($id); // Change variable name to $category
-        return view('pages.product.edit', compact('product'));
+        $product = \App\Models\Product::findOrFail($id);
+        $categories = \App\Models\Category::all();
+        return view('pages.product.edit', compact('product', 'categories'));
     }
 
-    // update
+    //update
     public function update(Request $request, $id)
     {
-        $data = $request->all();
-        $products = Product::findOrFail($id);
-        //check if password is not empty
-        $products->update($data);
-        return redirect()->route('product.index');
+        $product = \App\Models\Product::findOrFail($id);
+        //if image is not empty, then update the image
+        if ($request->image) {
+            $filename = time() . '.' . $request->image->extension();
+            $request->image->storeAs('public/products', $filename);
+            $product->image = $filename;
+        }
+        $product->update($request->all());
+
+        return redirect()->route('product.index')->with('success', 'Product updated successfully');
     }
 
     // destroy
@@ -63,6 +67,6 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
         $product->delete();
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->with('success', 'Product deleted successfully');
     }
 }
